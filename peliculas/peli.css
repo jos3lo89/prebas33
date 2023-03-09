@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	/* click en movil no fondo azul */
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background: #141c2f;
+}
+
+.main-header {
+	background: #1f2a48;
+	height: 70px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: sticky;
+	top: 0px;
+	z-index: 100;
+}
+
+/* logo del menu */
+.logo a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 2rem;
+}
+
+/* links del menu */
+.main-link .links {
+	display: flex;
+	gap: 20px;
+}
+
+.main-link a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 1.3rem;
+	outline: none;
+}
+
+/* icono menu */
+.menu {
+	display: none;
+}
+
+.menu i {
+	color: #fff;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+@media (max-width: 768px) {
+	.menu {
+		display: inline;
+	}
+
+	.main-header {
+		justify-content: space-between;
+		padding: 0 30px;
+	}
+
+	.main-link {
+		z-index: 9999;
+		position: fixed;
+		background: none;
+		width: 100%;
+		top: 70px;
+		height: auto;
+		left: 0;
+		right: 0;
+		bottom: 0; /*fuinciona click cualquier parte se cierra*/
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	}
+
+	.links {
+		background: #1f2a48;
+		display: flex;
+		flex-direction: column;
+		padding: 30px 0;
+	}
+
+	.links a {
+		margin-left: 40px;
+		width: 80px;
+		outline: none;
+	}
+
+	.main-link.show {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+}
+
+/* portada */
+.portada {
+	width: 100%;
+	height: 330px;
+}
+
+.portada img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (max-width: 768px) {
+	.portada {
+		width: 100%;
+		height: 210px;
+	}
+}
+
+/* detalle */
+.detalle {
+	width: 100%;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 30px;
+	padding: 0 20px;
+}
+
+.detalle .detalle-img {
+	width: 200px;
+	height: 260px;
+}
+
+.detalle .detalle-img img {
+	width: 200px;
+	height: 260px;
+	object-fit: cover;
+	border-radius: 3px;
+}
+
+.detalle-txt {
+	max-width: 800px;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.detalle-txt span {
+	color: #7b8da0;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.detalle-txt p {
+	color: #b6c1cb;
+	font-family: "Roboto", sans-serif;
+	font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+	.detalle {
+		flex-direction: column;
+		width: 100%;
+		height: auto;
+		padding: 20px 20px;
+	}
+	.detalle .detalle-img {
+		width: 150px;
+		height: 200px;
+	}
+
+	.detalle .detalle-img img {
+		width: 150px;
+		height: 200px;
+	}
+
+	.detalle-txt p {
+		color: #b6c1cb;
+		font-family: "Roboto", sans-serif;
+		font-size: 0.95rem;
+	}
+}
+
+/* reproductor */
+.ver-serie {
+	width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+}
+
+.container-serie {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 30px 20px;
+	gap: 30px;
+}
+
+.container-serie .main-video {
+	max-width: 800px;
+	width: 100%;
+	min-height: 300px;
+}
+
+.container-serie .main-video .video {
+	height: 500px;
+}
+
+.container-serie .main-video .video iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.container-serie .main-video .video .title {
+	display: none;
+}
+
+.container-serie .video-list {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: 15px;
+	max-width: 300px;
+}
+
+.container-serie .video-list .vid {
+	background: #1d3557;
+	border-radius: 5px;
+	margin: 8px;
+	padding: 8px;
+	cursor: pointer;
+}
+
+.container-serie .video-list .vid iframe {
+	display: none;
+}
+
+.container-serie .video-list .vid:hover {
+	background: #5762d5;
+}
+
+.container-serie .video-list .vid.active {
+	background: #b76d68;
+}
+
+.container-serie .video-list .vid.active .title {
+	color: #fff;
+}
+
+.container-serie .video-list .vid .title {
+	color: #eee;
+	font-size: 15px;
+}
+
+@media (max-width: 1200px) {
+	.container-serie {
+		flex-direction: column;
+		gap: 30px;
+	}
+}
+
+@media (max-width: 700px) {
+	.container-serie .main-video .video {
+		height: 300px;
+	}
+}
+
+/* ver series end */
